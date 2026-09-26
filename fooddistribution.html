@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Food Distribution Registration - CareConnect</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { 
+      background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .registration-hero {
+      background: linear-gradient(rgba(220,53,69,0.9), rgba(220,53,69,0.85)), 
+                  url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 120px 0;
+    }
+    .hero-title {
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      color: white !important;
+    }
+    .event-details-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      border: none;
+      margin-bottom: 40px;
+    }
+    .event-details-card .card-body {
+      padding: 40px;
+    }
+    .form-section {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      padding: 40px;
+      margin: 40px 0;
+    }
+    .btn-register {
+      background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+      border: none;
+      border-radius: 12px;
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: white;
+    }
+    .btn-register:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(220,53,69,0.4);
+      color: white;
+    }
+    .registration-image {
+      max-height: 300px;
+      object-fit: cover;
+    }
+    .detail-icon {
+      color: #dc3545;
+      font-size: 2rem;
+      margin-right: 15px;
+    }
+    .badge-danger-custom {
+      background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+      font-size: 0.9rem;
+      padding: 8px 16px;
+      font-weight: 500;
+    }
+    .activity-item {
+      padding: 15px;
+      background: #f8d7da;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      border-left: 4px solid #dc3545;
+    }
+    .text-danger-custom {
+      color: #721c24 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="fas fa-handshake me-2"></i>CareConnect</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html#how-it-works">How It Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#events">Events</a></li>
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="registration-hero text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-4 hero-title">
+        <i class="fas fa-utensils me-3"></i>Food Distribution
+      </h1>
+      <p class="lead mb-4 hero-title">Feed the hungry and spread joy - October 25th!</p>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="alert alert-danger rounded-pill px-4 py-3 shadow-lg" style="background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%); border-color: #dc3545;">
+            <i class="fas fa-heart me-2"></i>
+            Every meal counts! Help nourish our community 🍲❤️
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Details Section -->
+  <section class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card event-details-card shadow-lg">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4 text-center mb-4 mb-md-0">
+                <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80" 
+                     alt="Food Distribution" class="img-fluid rounded-4 shadow registration-image w-100">
+                <div class="mt-3">
+                  <span class="badge badge-danger-custom">
+                    <i class="fas fa-utensils me-1"></i>40 Spots Available
+                  </span>
+                </div>
+              </div>
+              <div class="col-md-8 ps-md-5">
+                <h3 class="text-danger-custom mb-4">
+                  <i class="fas fa-info-circle me-2"></i>Event Details
+                </h3>
+                
+                <div class="row mb-4">
+                  <div class="col-md-4">
+                    <div class="text-center text-md-start">
+                      <i class="fas fa-calendar-alt detail-icon d-block d-md-inline-block"></i>
+                      <strong>October 25, 2023</strong><br>
+                      <small class="text-muted">10:00 AM - 1:00 PM</small>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="text-center text-md-start">
+                      <i class="fas fa-map-marker-alt detail-icon d-block d-md-inline-block"></i>
+                      <strong>Community Hall</strong><br>
+                      <small class="text-muted">Old Town Square</small>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="text-center text-md-start">
+                      <i class="fas fa-boxes detail-icon d-block d-md-inline-block"></i>
+                      <strong>Feed 200 People</strong><br>
+                      <small class="text-danger-custom fw-bold">Make a difference!</small>
+                    </div>
+                  </div>
+                </div>
+
+                <h5 class="text-danger-custom mb-3 mt-4">
+                  <i class="fas fa-list-ul me-2"></i>Activities Included
+                </h5>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="activity-item">
+                      <i class="fas fa-box-open text-danger-custom me-3"></i>
+                      Food package preparation
+                    </div>
+                    <div class="activity-item">
+                      <i class="fas fa-hands-helping text-danger-custom me-3"></i>
+                      Distribution to families
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="activity-item">
+                      <i class="fas fa-child text-danger-custom me-3"></i>
+                      Priority distribution to children & elderly
+                    </div>
+                    <div class="activity-item">
+                      <i class="fas fa-utensils text-danger-custom me-3"></i>
+                      Hot meals & refreshments
+                    </div>
+                  </div>
+                </div>
+
+                <div class="alert alert-info mt-4">
+                  <i class="fas fa-lightbulb me-2"></i>
+                  <strong>Impact:</strong> Provide nutritious meals to 200 people in need and combat hunger in our community!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Form Section -->
+  <section class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="form-section">
+          <div class="text-center mb-5">
+            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=500&q=80" 
+                 alt="Food Distribution" class="img-fluid rounded-4 shadow mb-4 registration-image">
+            <h2 class="text-danger-custom"><i class="fas fa-clipboard-check me-2"></i>Registration Form</h2>
+            <p class="text-muted lead">Fill out the details below to join our food distribution team</p>
+          </div>
+
+          <form action="food-thank-you.html" method="POST" id="foodRegisterForm">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <label for="name" class="form-label fw-bold"><i class="fas fa-user text-danger-custom me-2"></i>Full Name *</label>
+                <input id="name" type="text" class="form-control form-control-lg" name="name" placeholder="Enter your full name" required>
+              </div>
+              <div class="col-md-6">
+                <label for="phone" class="form-label fw-bold"><i class="fas fa-phone text-danger-custom me-2"></i>Phone *</label>
+                <input id="phone" type="tel" class="form-control form-control-lg" name="phone" placeholder="+91 98765 43210" required>
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label fw-bold"><i class="fas fa-envelope text-danger-custom me-2"></i>Email *</label>
+                <input id="email" type="email" class="form-control form-control-lg" name="email" placeholder="you@example.com" required>
+              </div>
+              <div class="col-md-6">
+                <label for="age_group" class="form-label fw-bold"><i class="fas fa-calendar-day text-danger-custom me-2"></i>Age Group</label>
+                <select id="age_group" class="form-select form-select-lg" name="age_group">
+                  <option value="">Select age group</option>
+                  <option>Under 18</option>
+                  <option>18-25</option>
+                  <option>26-35</option>
+                  <option>36-50</option>
+                  <option>50+</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="role_preference" class="form-label fw-bold"><i class="fas fa-tasks text-danger-custom me-2"></i>Preferred Role</label>
+                <select id="role_preference" class="form-select form-select-lg" name="role_preference" required>
+                  <option value="">Select role</option>
+                  <option>Food Packing</option>
+                  <option>Distribution</option>
+                  <option>Children/Elderly Priority</option>
+                  <option>General Help</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="transport" class="form-label fw-bold"><i class="fas fa-car text-danger-custom me-2"></i>Transportation</label>
+                <select id="transport" class="form-select form-select-lg" name="transport">
+                  <option value="">Select option</option>
+                  <option>Own vehicle</option>
+                  <option>Public transport</option>
+                  <option>Need pickup</option>
+                  <option>Walking</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="requirements" class="form-label fw-bold"><i class="fas fa-comment-dots text-danger-custom me-2"></i>Special Requirements</label>
+                <textarea id="requirements" class="form-control form-control-lg" rows="4" name="requirements" placeholder="Dietary restrictions, physical limitations, language preferences, etc..."></textarea>
+              </div>
+            </div>
+            
+            <div class="alert alert-info mt-5">
+              <i class="fas fa-info-circle me-2"></i>
+              <strong>What to bring:</strong> Comfortable clothes, closed shoes, reusable water bottle, mask. 
+              <strong>All food packages, gloves, sanitizers & meals provided!</strong>
+            </div>
+
+            <div class="text-center mt-5 pt-4 border-top">
+              <button type="submit" class="btn btn-register btn-lg px-5">
+                <i class="fas fa-check-circle me-2"></i>
+                Join Food Distribution Team
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-5 mt-5">
+    <div class="container">
+      <p class="mb-0">&copy; 2025 CareConnect. All rights reserved. | 
+        <a href="index.html" class="text-light text-decoration-none">Back to Home</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Form Submission Success Animation -->
+  <script>
+    document.getElementById('foodRegisterForm').addEventListener('submit', function() {
+      const submitBtn = document.querySelector('.btn-register');
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Registering...';
+      submitBtn.disabled = true;
+    });
+  </script>
+</body>
+</html>

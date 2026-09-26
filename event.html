@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .overlay {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.6) 100%);
+            min-height: 100vh;
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-weight: 700;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        /* Glassmorphism Card Design */
+        .event-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            overflow: hidden;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .card-body {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            color: #e0e0e0;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .date-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        /* Modern Buttons */
+        .btn-primary {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* Modal Styling */
+        .modal-content {
+            background: #fff;
+            border-radius: 20px;
+            border: none;
+            color: #333;
+        }
+
+        .modal-header {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .modal-title {
+            color: #333;
+            font-weight: 700;
+        }
+
+        .modal-body img {
+            border-radius: 15px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+        }
+        
+        .modal-footer {
+            border-top: none;
+        }
+        
+        .btn-close:focus {
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay">
+        <section id="events" class="section">
+            <div class="container">
+                <h2 class="text-center">Upcoming Events</h2>
+                
+                <div class="row justify-content-center">
+                    
+                    <!-- EVENT 1: Tree Planting -->
+                    <div class="col-md-3">
+                        <div class="card event-card">
+                            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&q=80" class="card-img-top" alt="Tree Planting">
+                            <div class="card-body">
+                                <h5 class="card-title">Tree Planting Drive</h5>
+                                <span class="date-badge">📅 Oct 15, 2024</span>
+                                <p class="card-text">Join us to plant trees and make the city greener.</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#event1Modal">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EVENT 2: Teaching -->
+                    <div class="col-md-3">
+                        <div class="card event-card">
+                            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" class="card-img-top" alt="Teaching">
+                            <div class="card-body">
+                                <h5 class="card-title">Teaching Workshop</h5>
+                                <span class="date-badge">📅 Oct 20, 2024</span>
+                                <p class="card-text">Help educate underprivileged children in our community.</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#event2Modal">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EVENT 3: Food Distribution -->
+                    <div class="col-md-3">
+                        <div class="card event-card">
+                            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80" class="card-img-top" alt="Food">
+                            <div class="card-body">
+                                <h5 class="card-title">Food Distribution</h5>
+                                <span class="date-badge">📅 Oct 25, 2024</span>
+                                <p class="card-text">Assist in distributing meals to families in need.</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#event3Modal">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EVENT 4: Community Clean-Up -->
+                    <div class="col-md-3">
+                        <div class="card event-card">
+                            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&q=80" class="card-img-top" alt="Clean Up">
+                            <div class="card-body">
+                                <h5 class="card-title">Community Clean-Up</h5>
+                                <span class="date-badge">📅 Nov 5, 2024</span>
+                                <p class="card-text">Join us to clean up local parks and streets.</p>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#event4Modal">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ================= MODALS (POP UPS) ================= -->
+
+    <!-- EVENT 1 POPUP -->
+    <div class="modal fade" id="event1Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tree Planting Drive</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80" alt="Tree">
+                    <p>Join us for a day of environmental action! We will plant over 100 trees in Central Park to combat climate change. This is a family-friendly event.</p>
+                    <p><strong>📅 Date:</strong> October 15, 2024</p>
+                    <p><strong>⏰ Time:</strong> 9:00 AM - 3:00 PM</p>
+                    <p><strong>📍 Location:</strong> Central Park, Main Entrance</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="register form-html.html" class="btn btn-primary">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EVENT 2 POPUP -->
+    <div class="modal fade" id="event2Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Teaching Workshop</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80" alt="Teaching">
+                    <p>Help us teach basic math, English, and science to children from low-income families. No prior experience needed—just bring your enthusiasm!</p>
+                    <p><strong>📅 Date:</strong> October 20, 2024</p>
+                    <p><strong>⏰ Time:</strong> 10:00 AM - 2:00 PM</p>
+                    <p><strong>📍 Location:</strong> Community Hall, Downtown</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="register form-html.html" class="btn btn-primary">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EVENT 3 POPUP -->
+    <div class="modal fade" id="event3Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Food Distribution</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80" alt="Food">
+                    <p>We are distributing food packets to 500 families. Volunteers are needed for packing and delivery. Please wear comfortable shoes.</p>
+                    <p><strong>📅 Date:</strong> October 25, 2024</p>
+                    <p><strong>⏰ Time:</strong> 8:00 AM - 12:00 PM</p>
+                    <p><strong>📍 Location:</strong> City Food Bank</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="register form-html.html" class="btn btn-primary">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EVENT 4 POPUP -->
+    <div class="modal fade" id="event4Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Community Clean-Up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800&q=80" alt="Clean Up">
+                    <p>Let's beautify our neighborhood! We will pick up trash, paint murals, and plant flowers in the local park.</p>
+                    <p><strong>📅 Date:</strong> November 5, 2024</p>
+                    <p><strong>⏰ Time:</strong> 9:00 AM - 1:00 PM</p>
+                    <p><strong>📍 Location:</strong> Riverside Park</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="register form-html.html" class="btn btn-primary">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

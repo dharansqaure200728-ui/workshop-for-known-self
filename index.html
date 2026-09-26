@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Serve-TOgether – Volunteer Match Finder</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+    }
+    .hero {
+      position: relative;
+      color: white;
+      padding: 200px 0; /* Increased from 100px to 200px for larger header images */
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero .carousel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .hero .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero .carousel-caption {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      padding: 20px;
+      bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #28a745 0%, #007bff 100%);
+      border: none;
+      border-radius: 10px;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #218838 0%, #0056b3 100%);
+    }
+    .section {
+      padding: 60px 0;
+    }
+    .feature-icon {
+      font-size: 3rem;
+      color: #28a745;
+      margin-bottom: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .gallery {
+      display: block; /* Show events on home page */
+    }
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+     #innovation {
+      background: url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=580&q=80') no-repeat center center;
+      background-size: cover;
+      color: white;
+      padding: 80px 0;
+    }
+    #innovation .card {
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+    }
+    #mentorship {
+      background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2070&q=80') no-repeat center center;
+      background-size: cover;
+      color: white;
+      padding: 80px 0;
+    }
+    #mentorship .card {
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+    }
+    .event-card {
+      transition: transform 0.3s;
+    }
+    .event-card:hover {
+      transform: scale(1.05);
+    }
+    .event-img {
+      max-height: 200px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="fas fa-handshake me-2"></i>CareConnect</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" title="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="event.html">Events</a></li>
+          <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="#" id="ngoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              language
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="ngoDropdown">
+              <li><a class="dropdown-item" href="tamilpage.html">TAMIL</a></li>
+              <li><a class="dropdown-item" href="Untitled-1.html">English</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="ngoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              NGO Portal
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="ngoDropdown">
+              <li><a class="dropdown-item" href="Untitled-2.html">NGO account</a></li>
+              <li><a class="dropdown-item" href="ngolist-1.html">NGO list</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="volunteerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Volunteer Portal
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="volunteerDropdown">
+              <li><a class="dropdown-item" href="volunteerlogin.html">Volunteer account</a></li>
+              <li><a class="dropdown-item" href="volunteerlist.html">Volunteer list</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="volunteerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+               Mentorship
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="volunteerDropdown">
+              <li><a class="dropdown-item" href="menlogin.html">mentorship account</a></li>
+              <li><a class="dropdown-item" href="mentor list.html">mentorship list</a></li>
+               </ul>
+          </li>
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="volunteerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Report problem
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="volunteerDropdown">
+              <li><a class="dropdown-item" href="volunteerlogin.html">user account</a></li>
+              <li><a class="dropdown-item" href="reportproblem.html">report list</a></li>
+               </ul>
+          </li>
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="volunteerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             innovation-hub
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="volunteerDropdown">
+              <li><a class="dropdown-item" href="innovator list.html">innovators account</a></li>
+              <li><a class="dropdown-item" href="innovator list.html">innovators list</a></li>
+               </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Slider -->
+  <section class="hero">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" class="d-block w-100" alt="Tree Planting Drive">
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80" class="d-block w-100" alt="Food Distribution">
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+               class="d-block w-100" alt="AI and Community Support">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div class="container position-relative">
+      <div class="carousel-caption d-none d-md-block">
+        <h1>Welcome to CareConnect</h1>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+ 
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="section bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5">How It Works</h2>
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <i class="fas fa-bullhorn feature-icon"></i>
+          <h4>NGOs Post Events</h4>
+          <p>Create and share volunteering opportunities like tree planting, teaching, or food distribution.</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <i class="fas fa-search feature-icon"></i>
+          <h4>Volunteers Discover</h4>
+          <p>Browse local events based on interests (e.g., environment, education) and location.</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <i class="fas fa-handshake feature-icon"></i>
+          <h4>Get Matched</h4>
+          <p>Our platform connects you instantly for impactful community work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="text-center mb-5">Why Choose CareConnect?</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h5><i class="fas fa-map-marker-alt text-primary me-2"></i>Location-Based Matching</h5>
+          <p>Find volunteers or events near you for efficient, local impact.</p>
+        </div>
+        <div class="col-md-6">
+          <h5><i class="fas fa-heart text-primary me-2"></i>Interest Matching</h5>
+          <p>Match based on passions like environment, education, or aid work.</p>
+        </div>
+        <div class="col-md-6">
+          <h5><i class="fas fa-calendar-alt text-primary me-2"></i>Easy Event Posting</h5>
+          <p>NGOs can quickly post events with details like date, time, and requirements.</p>
+        </div>
+        <div class="col-md-6">
+          <h5><i class="fas fa-users text-primary me-2"></i>Community Building</h5>
+          <p>Foster connections between NGOs and volunteers for sustainable change.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+<section id="events" class="section bg-light py-5">
+    <div class="container-fluid">
+      <h2 class="text-center mb-5">Upcoming Events</h2>
+      
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="card event-card">
+            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=2070&q=80"
+                 alt="Event 1" class="card-img-top event-img">
+            <div class="card-body">
+              <h5 class="card-title">Tree Planting Drive</h5>
+              <p class="card-text">Join us for a day of environmental action. Date: Oct 15, 2023.</p>
+              <a href="fn1.html" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card event-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=2070&q=80"
+                 alt="Event 2" class="card-img-top event-img">
+            <div class="card-body">
+              <h5 class="card-title">Teaching Workshop</h5>
+              <p class="card-text">Help educate underprivileged children. Date: Oct 20, 2023.</p>
+              <a href="teachingdrive.html" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card event-card">
+            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80"
+                 alt="Event 3" class="card-img-top event-img">
+            <div class="card-body">
+              <h5 class="card-title">Food Distribution</h5>
+              <p class="card-text">Assist in distributing meals to those in need. Date: Oct 25, 2023.</p>
+              <a href="fooddistribution.html" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="text-center mt-5">
+        <a href="event.html" class="btn btn-primary btn-lg">View All Events</a>
+      </div>
+    </div>
+  </section>
+  <!-- Community Problem Reporting Section -->
+  <section id="problem-reporting" class="section">
+    <div class="container">
+      <h2 class="text-center mb-5">Report Community Problems</h2>
+      <p class="text-center mb-4">Citizens and NGOs can post real-world problems such as waste management, road issues, public health, elder care, or environmental challenges. Each report includes geo-location, category, urgency, description, and status tracking.</p>
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="card event-card">
+            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80" alt="Waste Management" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Waste Management</h5>
+              <p class="card-text">Report improper waste disposal or collection issues in your area.</p>
+             <a href="wastemanagement.html" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card event-card">
+            <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=800&q=80" alt="Road & Traffic Issues" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Road & Traffic Issues</h5>
+              <p class="card-text">Highlight potholes, traffic signals, or safety concerns.</p>
+              <a href="roadtraffic.html" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card event-card">
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80" alt="Public Health" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Public Health Concerns</h5>
+              <p class="card-text">Report sanitation, hygiene, or health-related community issues.</p>
+              <a href="publichealth.html" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="reportproblem.html" class="btn btn-primary btn-lg">View All Reports</a>
+      </div>
+    </div>
+  </section>
+  <!-- Innovation Hub Section -->
+  <section id="innovation" class="section">
+    <div class="container">
+      <h2 class="text-center mb-5">Innovation Hub</h2>
+      <p class="text-center mb-4">Students can build, submit, and deploy innovative solutions to community problems. Get mentorship and support to turn ideas into real-world impact.</p>
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="card event-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=2070&q=80" alt="AI Solutions" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">AI-Powered Waste Sorting</h5>
+              <p class="card-text">Develop AI to automate waste sorting for better recycling.</p>
+              <a href="ai-power.html" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card event-card">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2070&q=80" alt="Smart Traffic" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Smart Traffic Management</h5>
+              <p class="card-text">Create apps for real-time traffic optimization.</p>
+              <a href="smart.html" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card event-card">
+            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80" alt="Health Monitoring" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Community Health Monitoring</h5>
+              <p class="card-text">Build systems for tracking public health metrics.</p>
+             <a href="caremoni.html" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="innovator list.html" class="btn btn-primary btn-lg">Explore Innovations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 CareConnect. All rights reserved. | <a href="#" class="text-light">Contact Us</a></p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
